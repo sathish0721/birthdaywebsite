@@ -468,7 +468,7 @@
             top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem;
+            font-size: 2rem;
             color: white;
             text-align: center;
             z-index: 10000;
@@ -476,6 +476,8 @@
             text-shadow: 0 0 20px rgba(255, 107, 157, 0.8), 0 0 40px rgba(255, 107, 157, 0.6);
             animation: welcomeSlideUp 3s ease-out forwards;
             pointer-events: none;
+            padding: 0 20px;
+            max-width: 90%;
         }
 
         @keyframes welcomeSlideUp {
@@ -530,6 +532,36 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
             opacity: 1;
+        }
+
+        /* Portrait Video Layout for Section 1 */
+        .video-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+
+        .custom-video {
+            position: relative;
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Mobile adjustments for portrait video */
+        @media (max-width: 768px) {
+            .custom-video {
+                width: 100%;
+                height: auto;
+                max-height: 100vh;
+            }
         }
 
         /* Section 2 specific styles */
@@ -672,6 +704,11 @@
                 overflow-wrap: break-word;
                 hyphens: auto;
             }
+
+            .welcome-message {
+                font-size: 1.3rem !important;
+                padding: 0 15px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -698,6 +735,11 @@
 
             .encrypted-text {
                 font-size: 0.8rem !important;
+            }
+
+            .welcome-message {
+                font-size: 1rem !important;
+                padding: 0 10px;
             }
         }
     </style>
@@ -1270,11 +1312,19 @@ https://templatemo.com/tm-583-festava-live
                 }
             });
 
-            // Reset button when audio ends
+            // Reset button when audio ends and navigate to next section
             festivalAudio.addEventListener('ended', function () {
                 audioPlayBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play Audio';
                 audioSeekBar.value = 0;
                 currentTimeDisplay.textContent = '0:00';
+                
+                // Auto scroll to section 3 after audio finishes
+                setTimeout(function() {
+                    const section3 = document.getElementById('section_3');
+                    if (section3) {
+                        section3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 500); // Small delay for smooth transition
             });
 
             // Password Protected Video Functionality
@@ -1302,7 +1352,7 @@ https://templatemo.com/tm-583-festava-live
             const clues = [
                 "Ethana letter word lam sola mudiyathu, but that plays a major role in our relationship 💕",
                 "The theme I have given to you most of the time as a thing 🎁",
-                "On touching this something magical happens on the first meet❤️"
+                "On touching this something magical happens on the first meet❤️ (9 letter word)"
             ];
 
             // Show clue button click
@@ -1386,7 +1436,7 @@ https://templatemo.com/tm-583-festava-live
                     // Correct password - show welcome message
                     const welcomeMsg = document.createElement('div');
                     welcomeMsg.className = 'welcome-message';
-                    welcomeMsg.innerHTML = 'Sirika kudathu 🤣😂';
+                    welcomeMsg.innerHTML = 'Disclaimer: Sirika kudathu ammu 🤣😂';
                     document.body.appendChild(welcomeMsg);
 
                     // Hide password overlay
