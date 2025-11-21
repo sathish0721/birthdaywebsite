@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -378,6 +378,11 @@
             height: 100vh;
         }
 
+        /* Lock scroll at section 2 until password is entered */
+        body.section2-locked {
+            overflow: hidden;
+        }
+
         /* Ensure about-text-wrap is positioned relatively for absolute card positioning */
         .about-text-wrap {
             position: relative;
@@ -527,6 +532,37 @@
             opacity: 1;
         }
 
+        /* Section 2 specific styles */
+        #section_2 {
+            overflow: hidden;
+        }
+
+        .services-info {
+            max-height: 80vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 10px;
+        }
+
+        /* Custom scrollbar for encrypted content */
+        .services-info::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .services-info::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .services-info::-webkit-scrollbar-thumb {
+            background: rgba(255, 182, 193, 0.5);
+            border-radius: 10px;
+        }
+
+        .services-info::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 182, 193, 0.8);
+        }
+
         /* Mobile responsive fixes for iPhone and other devices */
         @media (max-width: 768px) {
             body {
@@ -540,6 +576,8 @@
 
             .services-info {
                 padding: 10px;
+                max-height: 70vh;
+                overflow-y: auto;
             }
 
             .services-info h2 {
@@ -622,6 +660,18 @@
                 font-size: 0.85rem !important;
                 line-height: 1.5;
             }
+
+            #encryptedContent {
+                max-width: 100%;
+                padding: 0 5px;
+            }
+
+            #encryptedContent p,
+            #encryptedContent h6 {
+                word-break: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
         }
 
         @media (max-width: 480px) {
@@ -644,6 +694,10 @@
 
             #clueTimer {
                 font-size: 1rem !important;
+            }
+
+            .encrypted-text {
+                font-size: 0.8rem !important;
             }
         }
     </style>
@@ -725,7 +779,7 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="about-section section-padding" id="section_2">
+        <section class="about-section section-padding" id="section_2" style="min-height: 100vh; display: flex; align-items: center;">
             <div class="container">
                 <div class="row">
 
@@ -1139,6 +1193,11 @@ https://templatemo.com/tm-583-festava-live
                         const nextSection = document.getElementById('section_2');
                         if (nextSection) {
                             nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            
+                            // Lock scroll at section 2 until password is entered
+                            setTimeout(function() {
+                                document.body.classList.add('section2-locked');
+                            }, 600);
                         }
                     }, 500); // Small delay for smooth transition
                 }
@@ -1150,6 +1209,22 @@ https://templatemo.com/tm-583-festava-live
                 heroVideo.play();
                 playAgainContainer.style.display = 'none';
                 playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
+            });
+
+            // Detect when user scrolls to section 2 manually
+            let section2Locked = false;
+            window.addEventListener('scroll', function() {
+                const section2 = document.getElementById('section_2');
+                if (!section2Locked && section2) {
+                    const section2Top = section2.getBoundingClientRect().top;
+                    // If section 2 is visible and password not entered yet
+                    if (section2Top < window.innerHeight / 2 && document.getElementById('textPasswordBox').style.display !== 'none') {
+                        section2Locked = true;
+                        document.body.classList.add('section2-locked');
+                        // Snap to section 2
+                        section2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
             });
 
             // Audio play/pause functionality
@@ -1403,6 +1478,17 @@ https://templatemo.com/tm-583-festava-live
 
                     // Show encrypted content
                     encryptedContent.style.display = 'block';
+
+                    // Unlock scroll for section 2
+                    document.body.classList.remove('section2-locked');
+
+                    // Force viewport to fit content on mobile
+                    if (window.innerWidth <= 768) {
+                        // Scroll to the content smoothly
+                        setTimeout(function() {
+                            encryptedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    }
 
                     // Animate text elements with staggered fade-in
                     const encryptedTexts = document.querySelectorAll('.encrypted-text');
