@@ -415,7 +415,7 @@
             position: absolute;
             width: 100px;
             height: 100px;
-            border-radius: 50%;
+            border-radius: 10px;
             object-fit: cover;
             opacity: 0.7;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -576,13 +576,26 @@ https://templatemo.com/tm-583-festava-live
                         <div class="services-info">
                             <h2 class="text-white mb-3" style="font-size: 1.8rem;">என்னவள் 😍💖</h2>
 
-                            <p class="text-white">You came into my life like an angel — my butterfly, colouring my days with the softness of your wings. Every dream I live today exists only because of the soul who is reading this.We have crossed so many seasons of life, yet in each one you stood strong, calm, and steady… shaping our journey with your love. You gave me the purest, unconditional love without even a heartbeat of expectation. So many times I felt I wasn’t giving enough — but now it’s my turn to give you everything you deserve. I promise to spend my lifetime showing you how deeply I love you</p>
+                            <!-- Password Box for Decryption -->
+                            <div id="textPasswordBox" style="margin: 15px 0;">
+                                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; border: 2px solid rgba(255, 182, 193, 0.3);">
+                                    <p class="text-white mb-2" style="font-size: 0.9rem;">🔒 Color of cosy stay 🤣</p>
+                                    <input type="password" id="textPassword" class="form-control mb-2" placeholder="Guess it mam 😉🤔" style="max-width: 200px; padding: 8px; font-size: 0.9rem;">
+                                    <button class="btn btn-sm custom-btn" id="decryptBtn" style="font-size: 0.85rem; padding: 6px 15px;">Unlock personal Message</button>
+                                    <p id="textPasswordError" class="text-danger mt-2 mb-0" style="display: none; font-size: 0.85rem;"></p>
+                                </div>
+                            </div>
 
-                            <h6 class="text-white mt-3" style="font-size: 1rem;">Happy birthday, papu</h6>
+                            <!-- Encrypted/Hidden Text Content -->
+                            <div id="encryptedContent" style="display: none;">
+                                <p class="text-white encrypted-text" style="opacity: 0; transition: opacity 0.8s ease;">You came into my life like an angel — my butterfly, colouring my days with the softness of your wings. Every dream I live today exists only because of the soul who is reading this.We have crossed so many seasons of life, yet in each one you stood strong, calm, and steady… shaping our journey with your love. You gave me the purest, unconditional love without even a heartbeat of expectation. So many times I felt I wasn’t giving enough — but now it’s my turn to give you everything you deserve. I promise to spend my lifetime showing you how deeply I love you</p>
 
-                            <p class="text-white">I love you endlessly, papuu. I’m waiting for the moment when my fiancée becomes my wife and our dreams take their full shape. Thank you for being my life. I am blessed, lucky, and forever grateful for you. Thank you for never letting me go… pogavay mudiyala, because from the very beginning of our friendship, my heart chose you.</p>
+                                <h6 class="text-white mt-3 encrypted-text" style="font-size: 1rem; opacity: 0; transition: opacity 0.8s ease 0.3s;">Happy birthday papu💖💋</h6>
 
-                            <h6 class="text-white mt-3" style="font-size: 0.95rem;">For you, anything and everything —With all my love,Satz</h6>
+                                <p class="text-white encrypted-text" style="opacity: 0; transition: opacity 0.8s ease 0.6s;">I love you endlessly, papuu. I’m waiting for the moment when my fiancée becomes my wife and our dreams take their full shape. Thank you for being my life. I am blessed, lucky, and forever grateful for you. Thank you for never letting me go… pogavay mudiyala, because from the very beginning of our friendship, my heart chose you.</p>
+
+                                <h6 class="text-white mt-3 encrypted-text" style="font-size: 0.95rem; opacity: 0; transition: opacity 0.8s ease 0.9s;">For you, anything and everything —With all my love,Satz</h6>
+                            </div>
 
                             <!-- <p class="text-white">Please tell your friends about our website. Thank you.</p> -->
                         </div>
@@ -599,7 +612,7 @@ https://templatemo.com/tm-583-festava-live
 
 
                                 <div class="ms-2">
-                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">என் அன்புத் தோழிக்கு இனிய பிறந்தநாள் வாழ்த்துக்கள்</h3>
+                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">என் தேவதைக்கு இனிய பிறந்தநாள் வாழ்த்துக்கள்</h3>
 
                                     <!-- <p class="mb-0" style="font-size: 0.9rem;">Try to use hearphone, bayapuda kudathu</p> -->
                                     
@@ -653,7 +666,7 @@ https://templatemo.com/tm-583-festava-live
                                 
                                 <button class="btn custom-btn mb-3" id="showClueBtn">Click to see the clue (You have only 10 sec for each clue)</button>
                                 
-                                <input type="password" id="videoPassword" class="form-control mb-3" placeholder="Enter password..." style="max-width: 300px; margin: 0 auto;">
+                                <input type="password" id="videoPassword" class="form-control mb-3" placeholder="Yosinga madam..." style="max-width: 300px; margin: 0 auto;">
                                 <button class="btn custom-btn" id="unlockBtn">Unlock Video</button>
                                 <p id="passwordError" class="text-danger mt-3" style="display: none;"></p>
                             </div>
@@ -781,12 +794,17 @@ https://templatemo.com/tm-583-festava-live
             
             // Array of available images
             const images = [
-                'images/swetha.jpeg',
-                'images/swethasathish.jpeg',
-                'images/pexels-alexander-suhorucov-6457579.jpg',
-                'images/edward-unsplash-blur.jpg',
-                'images/nainoa-shizuru-unsplash-blur.jpg',
-                'images/nicholas-green-unsplash-blur.jpg'
+                'images/swetha1.jpeg',
+                'images/swetha2.jpeg',
+                'images/swetha3.jpeg',
+                'images/swetha4.jpeg',
+                'images/swetha5.jpeg',
+                'images/swetha6.jpeg',
+                'images/swetha7.jpeg',
+                'images/swetha8.jpeg',
+                'images/swetha9.jpeg',
+                'images/swetha10.jpeg',
+                'images/swetha11.jpeg',
             ];
             
             const floatingElements = [];
@@ -811,10 +829,10 @@ https://templatemo.com/tm-583-festava-live
                     element: img,
                     x: startX,
                     y: startY,
-                    vx: (Math.random() - 0.5) * 0.8, // velocity x (% per frame)
-                    vy: (Math.random() - 0.5) * 0.8, // velocity y (% per frame)
+                    vx: (Math.random() - 0.5) * 0.3, // velocity x (% per frame) - slower
+                    vy: (Math.random() - 0.5) * 0.3, // velocity y (% per frame) - slower
                     rotation: 0,
-                    rotationSpeed: (Math.random() - 0.5) * 8 // degrees per frame
+                    rotationSpeed: (Math.random() - 0.5) * 2 // degrees per frame - slower rotation
                 });
             }
             
@@ -988,8 +1006,8 @@ https://templatemo.com/tm-583-festava-live
         const clueTimer = document.getElementById('clueTimer');
         const showClueBtn = document.getElementById('showClueBtn');
         
-        // Set your password here
-        const correctPassword = 'papu'; // Change this to your desired password
+        // Set your password here - accept multiple variations
+        const correctPasswords = ['butterfly', 'Butterfly', 'butterFly', 'BUTTERFLY'];
         
         // Clue system with timer
         let wrongAttempts = 0;
@@ -999,7 +1017,7 @@ https://templatemo.com/tm-583-festava-live
         let clueChancesUsed = 0;
         
         const clues = [
-            "It's a 9 letter word, that plays a major role in our relationship 💕",
+            "Ethana letter word lam sola mudiyathu, but that plays a major role in our relationship 💕",
             "The theme I have given to you most of the time as a thing 🎁",
             "On touching this something magical happens on the first meet❤️"
         ];
@@ -1075,7 +1093,7 @@ https://templatemo.com/tm-583-festava-live
                 return;
             }
             
-            if (enteredPassword === correctPassword) {
+            if (correctPasswords.includes(enteredPassword)) {
                 // Hide the section heading and text immediately
                 const passwordSectionHeading = document.querySelector('#section_3 h2');
                 const passwordSectionText = document.querySelector('#section_3 p');
@@ -1119,7 +1137,7 @@ https://templatemo.com/tm-583-festava-live
                         clearInterval(clueTimerInterval);
                     }
                 } else {
-                    showError('❌ Wrong password! You have ' + (3 - wrongAttempts) + ' attempts left... 💖');
+                    showError('❌ Wrong password mam ! You have ' + (3 - wrongAttempts) + ' attempts left... 💖');
                     videoPassword.value = '';
                     videoPassword.focus();
                 }
@@ -1159,6 +1177,51 @@ https://templatemo.com/tm-583-festava-live
             const passwordSectionText = document.querySelector('#section_3 p');
             if (passwordSectionHeading) passwordSectionHeading.style.display = 'block';
             if (passwordSectionText) passwordSectionText.style.display = 'block';
+        });
+
+        // Text Decryption Functionality
+        const textPasswordInput = document.getElementById('textPassword');
+        const decryptBtn = document.getElementById('decryptBtn');
+        const textPasswordBox = document.getElementById('textPasswordBox');
+        const encryptedContent = document.getElementById('encryptedContent');
+        const textPasswordError = document.getElementById('textPasswordError');
+        
+        decryptBtn.addEventListener('click', function() {
+            const password = textPasswordInput.value.trim();
+            
+            if (password === 'blue' || password === 'Blue' || password === 'BLUE') {
+                // Hide password box
+                textPasswordBox.style.display = 'none';
+                
+                // Show encrypted content
+                encryptedContent.style.display = 'block';
+                
+                // Animate text elements with staggered fade-in
+                const encryptedTexts = document.querySelectorAll('.encrypted-text');
+                encryptedTexts.forEach(function(text) {
+                    // Trigger opacity transition
+                    setTimeout(function() {
+                        text.style.opacity = '1';
+                    }, 50);
+                });
+            } else {
+                // Show error message
+                textPasswordError.textContent = 'Incorrect madam 🤣 ???? iris';
+                textPasswordError.style.display = 'block';
+                textPasswordInput.value = '';
+                
+                // Hide error after 3 seconds
+                setTimeout(function() {
+                    textPasswordError.style.display = 'none';
+                }, 3000);
+            }
+        });
+        
+        // Allow Enter key to unlock
+        textPasswordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                decryptBtn.click();
+            }
         });
     </script>
 
