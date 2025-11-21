@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +22,7 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="css/templatemo-festava-live.css" rel="stylesheet">
-    
+
     <style>
         /* Birthday Animation Styles */
         #birthdayIntro {
@@ -42,7 +43,7 @@
             overflow: hidden;
             will-change: background-position;
         }
-        
+
         #birthdayIntro::before {
             content: '';
             position: absolute;
@@ -50,39 +51,44 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             animation: shimmer 6s ease-in-out infinite;
             will-change: transform, opacity;
         }
-        
+
         @keyframes gradientShift {
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
         }
-        
+
         @keyframes shimmer {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translate(0, 0) scale(1);
                 opacity: 0.2;
             }
+
             50% {
                 transform: translate(5%, 5%) scale(1.05);
                 opacity: 0.4;
             }
         }
-        
+
         #birthdayIntro.fade-out {
             opacity: 0;
             pointer-events: none;
         }
-        
+
         .wish-container {
             text-align: center;
             color: white;
@@ -95,7 +101,7 @@
             padding: 20px;
             max-width: 100%;
         }
-        
+
         .wish-text {
             font-size: 4rem;
             font-weight: 900;
@@ -109,43 +115,46 @@
             letter-spacing: 3px;
             max-width: 100%;
         }
-        
+
         .wish-text span {
             display: inline-block;
             opacity: 0;
             animation: jumpIn 0.6s ease-out forwards;
         }
-        
+
         .wish-text span.word {
             color: #FFF5E1;
             text-shadow: 0 0 30px rgba(255, 255, 255, 1),
-                         0 0 60px rgba(255, 182, 193, 0.8),
-                         0 6px 10px rgba(0, 0, 0, 0.6),
-                         3px 3px 0px #ff1744,
-                         6px 6px 0px #c2185b;
+                0 0 60px rgba(255, 182, 193, 0.8),
+                0 6px 10px rgba(0, 0, 0, 0.6),
+                3px 3px 0px #ff1744,
+                6px 6px 0px #c2185b;
             font-weight: 900;
         }
-        
+
         .wish-text span.emoji {
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
             font-size: 4.5rem;
         }
-        
+
         @keyframes textShine {
-            0%, 100% {
+
+            0%,
+            100% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
         }
-        
+
         .wish-subtext {
             font-size: 2rem;
             font-weight: 600;
             color: #FFF5E1;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
-                         0 4px 8px rgba(0, 0, 0, 0.4);
+                0 4px 8px rgba(0, 0, 0, 0.4);
             opacity: 0;
             animation: fadeInUp 1.5s ease-out forwards;
             animation-delay: 3s;
@@ -154,7 +163,7 @@
             max-width: 100%;
             padding: 0 10px;
         }
-        
+
         /* Mobile responsive styles for birthday animation */
         @media (max-width: 768px) {
             .wish-text {
@@ -166,33 +175,33 @@
                 overflow-y: hidden;
                 white-space: nowrap;
             }
-            
+
             .wish-text span.emoji {
                 font-size: 2.2rem;
             }
-            
+
             .wish-text span.word {
                 text-shadow: 0 0 15px rgba(255, 255, 255, 1),
-                             0 0 30px rgba(255, 182, 193, 0.8),
-                             0 3px 5px rgba(0, 0, 0, 0.6),
-                             2px 2px 0px #ff1744,
-                             4px 4px 0px #c2185b;
+                    0 0 30px rgba(255, 182, 193, 0.8),
+                    0 3px 5px rgba(0, 0, 0, 0.6),
+                    2px 2px 0px #ff1744,
+                    4px 4px 0px #c2185b;
             }
-            
+
             .wish-subtext {
                 font-size: 1rem;
                 letter-spacing: 1px;
             }
-            
+
             .rose-petal {
                 font-size: 20px;
             }
-            
+
             .heart {
                 font-size: 25px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .wish-text {
                 font-size: 1.3rem;
@@ -203,33 +212,33 @@
                 overflow-y: hidden;
                 white-space: nowrap;
             }
-            
+
             .wish-text span.emoji {
                 font-size: 1.6rem;
             }
-            
+
             .wish-text span.word {
                 text-shadow: 0 0 10px rgba(255, 255, 255, 1),
-                             0 0 20px rgba(255, 182, 193, 0.8),
-                             0 2px 4px rgba(0, 0, 0, 0.6),
-                             1px 1px 0px #ff1744,
-                             2px 2px 0px #c2185b;
+                    0 0 20px rgba(255, 182, 193, 0.8),
+                    0 2px 4px rgba(0, 0, 0, 0.6),
+                    1px 1px 0px #ff1744,
+                    2px 2px 0px #c2185b;
             }
-            
+
             .wish-subtext {
                 font-size: 0.85rem;
                 letter-spacing: 0.5px;
             }
-            
+
             .rose-petal {
                 font-size: 16px;
             }
-            
+
             .heart {
                 font-size: 20px;
             }
         }
-        
+
         .rose-petal {
             position: absolute;
             top: -20px;
@@ -237,57 +246,65 @@
             animation: petalFall 2.5s ease-in forwards;
             opacity: 0.9;
         }
-        
+
         @keyframes petalFall {
             0% {
                 top: -20px;
                 opacity: 1;
                 transform: translateX(0) rotate(0deg);
             }
+
             25% {
                 transform: translateX(var(--sway-1)) rotate(180deg);
             }
+
             50% {
                 transform: translateX(var(--sway-2)) rotate(360deg);
             }
+
             75% {
                 transform: translateX(var(--sway-1)) rotate(540deg);
             }
+
             100% {
                 top: 100vh;
                 opacity: 0.3;
                 transform: translateX(var(--sway-2)) rotate(720deg);
             }
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes jumpIn {
             0% {
                 opacity: 0;
                 transform: translateY(-50px) scale(0.5);
             }
+
             50% {
                 transform: translateY(10px) scale(1.1);
             }
+
             70% {
                 transform: translateY(-5px) scale(0.95);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
         }
-        
+
         .heart {
             position: absolute;
             bottom: -50px;
@@ -295,33 +312,38 @@
             animation: floatHeart 5s ease-in-out forwards;
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
-        
+
         @keyframes floatHeart {
             0% {
                 bottom: -50px;
                 opacity: 0;
                 transform: translateX(0) scale(0.5) rotate(0deg);
             }
+
             10% {
                 opacity: 1;
             }
+
             25% {
                 transform: translateX(var(--drift-1)) scale(1.2) rotate(5deg);
             }
+
             50% {
                 transform: translateX(var(--drift-2)) scale(0.9) rotate(-5deg);
             }
+
             75% {
                 transform: translateX(var(--drift-1)) scale(1.1) rotate(3deg);
                 opacity: 1;
             }
+
             100% {
                 bottom: 100vh;
                 opacity: 0;
                 transform: translateX(var(--drift-2)) scale(0.5) rotate(0deg);
             }
         }
-        
+
         .sparkle {
             position: absolute;
             width: 4px;
@@ -331,35 +353,36 @@
             animation: sparkleFloat 1.5s ease-out forwards;
             box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
         }
-        
+
         @keyframes sparkleFloat {
             0% {
                 opacity: 1;
                 transform: translate(0, 0) scale(1);
             }
+
             100% {
                 opacity: 0;
                 transform: translate(var(--sx), var(--sy)) scale(0);
             }
         }
-        
+
         /* Full Screen Hero Section */
         .hero-section {
             min-height: 100vh !important;
             height: 100vh;
         }
-        
+
         /* Lock scroll until video is watched */
         body.scroll-locked {
             overflow: hidden;
             height: 100vh;
         }
-        
+
         /* Ensure about-text-wrap is positioned relatively for absolute card positioning */
         .about-text-wrap {
             position: relative;
         }
-        
+
         /* Password Protected Section Styles */
         .password-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -368,7 +391,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .password-overlay {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
@@ -377,13 +400,13 @@
             max-width: 500px;
             margin: 0 auto;
         }
-        
+
         .password-box {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         #videoPassword {
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #ff6b9d;
@@ -392,24 +415,34 @@
             font-size: 1.1rem;
             text-align: center;
         }
-        
+
         #videoPassword:focus {
             outline: none;
             border-color: #ff1744;
             box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
         }
-        
+
         #passwordError {
             font-weight: bold;
             animation: shake 0.5s;
         }
-        
+
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-10px);
+            }
+
+            75% {
+                transform: translateX(10px);
+            }
         }
-        
+
         /* Floating images animation for password section */
         .floating-image {
             position: absolute;
@@ -423,7 +456,7 @@
             will-change: transform;
             transition: left 0.05s linear, top 0.05s linear;
         }
-        
+
         /* Welcome Message Animation */
         .welcome-message {
             position: fixed;
@@ -439,26 +472,29 @@
             animation: welcomeSlideUp 3s ease-out forwards;
             pointer-events: none;
         }
-        
+
         @keyframes welcomeSlideUp {
             0% {
                 opacity: 0;
                 transform: translate(-50%, -50%) scale(0.5);
             }
+
             20% {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(1);
             }
+
             80% {
                 opacity: 1;
                 transform: translate(-50%, -100%) scale(1);
             }
+
             100% {
                 opacity: 0;
                 transform: translate(-50%, -150%) scale(0.8);
             }
         }
-        
+
         .video-play-overlay {
             position: absolute;
             top: 0;
@@ -471,7 +507,7 @@
             background: rgba(0, 0, 0, 0.7);
             z-index: 10;
         }
-        
+
         .play-video-btn {
             background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
             border: none;
@@ -484,7 +520,7 @@
             box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
             opacity: 0.9;
         }
-        
+
         .play-video-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
@@ -552,7 +588,8 @@ https://templatemo.com/tm-583-festava-live
             </div>
 
             <!-- Play Again Button - Center (Hidden by default) -->
-            <div id="playAgainContainer" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; display: none;">
+            <div id="playAgainContainer"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; display: none;">
                 <button class="btn custom-btn" id="playAgainBtn" style="font-size: 1.2rem; padding: 15px 30px;">
                     <i class="bi bi-play-circle-fill"></i> Play Again
                 </button>
@@ -578,23 +615,44 @@ https://templatemo.com/tm-583-festava-live
 
                             <!-- Password Box for Decryption -->
                             <div id="textPasswordBox" style="margin: 15px 0;">
-                                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; border: 2px solid rgba(255, 182, 193, 0.3);">
+                                <div
+                                    style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; border: 2px solid rgba(255, 182, 193, 0.3);">
                                     <p class="text-white mb-2" style="font-size: 0.9rem;">🔒 Color of cosy stay 🤣</p>
-                                    <input type="password" id="textPassword" class="form-control mb-2" placeholder="Guess it mam 😉🤔" style="max-width: 200px; padding: 8px; font-size: 0.9rem;">
-                                    <button class="btn btn-sm custom-btn" id="decryptBtn" style="font-size: 0.85rem; padding: 6px 15px;">Unlock personal Message</button>
-                                    <p id="textPasswordError" class="text-danger mt-2 mb-0" style="display: none; font-size: 0.85rem;"></p>
+                                    <input type="password" id="textPassword" class="form-control mb-2"
+                                        placeholder="Guess it mam 😉🤔"
+                                        style="max-width: 200px; padding: 8px; font-size: 0.9rem;">
+                                    <button class="btn btn-sm custom-btn" id="decryptBtn"
+                                        style="font-size: 0.85rem; padding: 6px 15px;">Unlock personal Message</button>
+                                    <p id="textPasswordError" class="text-danger mt-2 mb-0"
+                                        style="display: none; font-size: 0.85rem;"></p>
                                 </div>
                             </div>
 
                             <!-- Encrypted/Hidden Text Content -->
                             <div id="encryptedContent" style="display: none;">
-                                <p class="text-white encrypted-text" style="opacity: 0; transition: opacity 0.8s ease;">You came into my life like an angel — my butterfly, colouring my days with the softness of your wings. Every dream I live today exists only because of the soul who is reading this.We have crossed so many seasons of life, yet in each one you stood strong, calm, and steady… shaping our journey with your love. You gave me the purest, unconditional love without even a heartbeat of expectation. So many times I felt I wasn’t giving enough — but now it’s my turn to give you everything you deserve. I promise to spend my lifetime showing you how deeply I love you</p>
+                                <p class="text-white encrypted-text" style="opacity: 0; transition: opacity 0.8s ease;">
+                                    You came into my life like an angel — my butterfly, colouring my days with the
+                                    softness of your wings. Every dream I live today exists only because of the soul who
+                                    is reading this.We have crossed so many seasons of life, yet in each one you stood
+                                    strong, calm, and steady… shaping our journey with your love. You gave me the
+                                    purest, unconditional love without even a heartbeat of expectation. So many times I
+                                    felt I wasn’t giving enough — but now it’s my turn to give you everything you
+                                    deserve. I promise to spend my lifetime showing you how deeply I love you</p>
 
-                                <h6 class="text-white mt-3 encrypted-text" style="font-size: 1rem; opacity: 0; transition: opacity 0.8s ease 0.3s;">Happy birthday papu💖💋</h6>
+                                <h6 class="text-white mt-3 encrypted-text"
+                                    style="font-size: 1rem; opacity: 0; transition: opacity 0.8s ease 0.3s;">Happy
+                                    birthday papu💖💋</h6>
 
-                                <p class="text-white encrypted-text" style="opacity: 0; transition: opacity 0.8s ease 0.6s;">I love you endlessly, papuu. I’m waiting for the moment when my fiancée becomes my wife and our dreams take their full shape. Thank you for being my life. I am blessed, lucky, and forever grateful for you. Thank you for never letting me go… pogavay mudiyala, because from the very beginning of our friendship, my heart chose you.</p>
+                                <p class="text-white encrypted-text"
+                                    style="opacity: 0; transition: opacity 0.8s ease 0.6s;">I love you endlessly, papuu.
+                                    I’m waiting for the moment when my fiancée becomes my wife and our dreams take their
+                                    full shape. Thank you for being my life. I am blessed, lucky, and forever grateful
+                                    for you. Thank you for never letting me go… pogavay mudiyala, because from the very
+                                    beginning of our friendship, my heart chose you.</p>
 
-                                <h6 class="text-white mt-3 encrypted-text" style="font-size: 0.95rem; opacity: 0; transition: opacity 0.8s ease 0.9s;">For you, anything and everything —With all my love,Satz</h6>
+                                <h6 class="text-white mt-3 encrypted-text"
+                                    style="font-size: 0.95rem; opacity: 0; transition: opacity 0.8s ease 0.9s;">For you,
+                                    anything and everything —With all my love,Satz</h6>
                             </div>
 
                             <!-- <p class="text-white">Please tell your friends about our website. Thank you.</p> -->
@@ -605,30 +663,36 @@ https://templatemo.com/tm-583-festava-live
                         <div class="about-text-wrap">
                             <img src="images/swetha.jpeg" class="about-image img-fluid">
 
-                            <div class="about-text-info d-flex" style="padding: 12px 15px; max-width: 100%; width: 100%; position: absolute; bottom: 0; left: 0; right: 0;">
+                            <div class="about-text-info d-flex"
+                                style="padding: 12px 15px; max-width: 100%; width: 100%; position: absolute; bottom: 0; left: 0; right: 0;">
                                 <div class="d-flex">
-                                    <img src="images/swethasathish.jpeg" alt="Profile" class="about-text-icon" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.3);">
+                                    <img src="images/swethasathish.jpeg" alt="Profile" class="about-text-icon"
+                                        style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.3);">
                                 </div>
 
 
                                 <div class="ms-2">
-                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">என் தேவதைக்கு இனிய பிறந்தநாள் வாழ்த்துக்கள்</h3>
+                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">என் தேவதைக்கு இனிய பிறந்தநாள்
+                                        வாழ்த்துக்கள்</h3>
 
                                     <!-- <p class="mb-0" style="font-size: 0.9rem;">Try to use hearphone, bayapuda kudathu</p> -->
-                                    
+
                                     <div class="mt-1">
                                         <audio id="festivalAudio" src="audio/audio.mpeg"></audio>
-                                        <button class="btn btn-sm custom-btn" id="audioPlayBtn" style="font-size: 0.75rem; padding: 4px 10px;">
+                                        <button class="btn btn-sm custom-btn" id="audioPlayBtn"
+                                            style="font-size: 0.75rem; padding: 4px 10px;">
                                             <i class="bi bi-play-fill"></i> Play Audio
                                         </button>
-                                        
+
                                         <!-- Audio Progress Bar -->
                                         <div class="audio-controls mt-2" style="display: none;" id="audioControls">
                                             <div style="display: flex; align-items: center; gap: 8px;">
-                                                <span id="currentTime" style="font-size: 0.75rem; color: #fff; min-width: 35px;">0:00</span>
-                                                <input type="range" id="audioSeekBar" min="0" max="100" value="0" 
+                                                <span id="currentTime"
+                                                    style="font-size: 0.75rem; color: #fff; min-width: 35px;">0:00</span>
+                                                <input type="range" id="audioSeekBar" min="0" max="100" value="0"
                                                     style="flex: 1; height: 4px; border-radius: 2px; outline: none; cursor: pointer;">
-                                                <span id="totalDuration" style="font-size: 0.75rem; color: #fff; min-width: 35px;">0:00</span>
+                                                <span id="totalDuration"
+                                                    style="font-size: 0.75rem; color: #fff; min-width: 35px;">0:00</span>
                                             </div>
                                         </div>
                                     </div>
@@ -644,43 +708,55 @@ https://templatemo.com/tm-583-festava-live
         <!-- Password Protected Video Section -->
         <section class="password-section" id="section_3" style="position: relative; overflow: hidden; padding: 0;">
             <!-- Floating Images Background -->
-            <div id="floatingImagesContainer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></div>
-            
+            <div id="floatingImagesContainer"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+            </div>
+
             <div class="container" style="position: relative; z-index: 2;">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h2 class="text-white mb-4">Special Surprise Video 💝</h2>
                         <p class="text-white mb-4">You have only 3 chances and 3 clues papu...guess it? 🤔</p>
-                        
+
                         <!-- Password Input -->
                         <div id="passwordOverlay" class="password-overlay">
                             <div class="password-box">
                                 <i style="font-size: 3rem;"></i>
                                 <h3 class="text-white mb-4">🔐 Only your heart can unlock this</h3>
-                                
+
                                 <!-- Clue Display -->
-                                <div id="clueBox" class="mb-3" style="padding: 15px; background: rgba(255, 255, 255, 0.15); border-radius: 10px; max-width: 400px; margin: 0 auto 20px; border: 2px solid rgba(255, 182, 193, 0.3); display: none;">
-                                    <p style="margin: 0; font-size: 1.1rem; color: #FFE4E1; font-weight: 600;">💡 <strong style="color: #FFD700;">Clue:</strong> <span id="clueTimer" style="color: #FF6B9D; font-size: 1.2rem; margin-left: 10px;">⏱️ 10s</span></p>
-                                    <p id="clueText" style="margin: 10px 0 0 0; font-size: 1rem; color: #FFDAB9; font-weight: 500;">It's a 9 letter word, that plays a major role in our relationship 💕</p>
+                                <div id="clueBox" class="mb-3"
+                                    style="padding: 15px; background: rgba(255, 255, 255, 0.15); border-radius: 10px; max-width: 400px; margin: 0 auto 20px; border: 2px solid rgba(255, 182, 193, 0.3); display: none;">
+                                    <p style="margin: 0; font-size: 1.1rem; color: #FFE4E1; font-weight: 600;">💡
+                                        <strong style="color: #FFD700;">Clue:</strong> <span id="clueTimer"
+                                            style="color: #FF6B9D; font-size: 1.2rem; margin-left: 10px;">⏱️ 10s</span>
+                                    </p>
+                                    <p id="clueText"
+                                        style="margin: 10px 0 0 0; font-size: 1rem; color: #FFDAB9; font-weight: 500;">
+                                        It's a 9 letter word, that plays a major role in our relationship 💕</p>
                                 </div>
-                                
-                                <button class="btn custom-btn mb-3" id="showClueBtn">Click to see the clue (You have only 10 sec for each clue)</button>
-                                
-                                <input type="password" id="videoPassword" class="form-control mb-3" placeholder="Yosinga madam..." style="max-width: 300px; margin: 0 auto;">
+
+                                <button class="btn custom-btn mb-3" id="showClueBtn">Click to see the clue (You have
+                                    only 10 sec for each clue)</button>
+
+                                <input type="password" id="videoPassword" class="form-control mb-3"
+                                    placeholder="Yosinga madam..." style="max-width: 300px; margin: 0 auto;">
                                 <button class="btn custom-btn" id="unlockBtn">Unlock Video</button>
                                 <p id="passwordError" class="text-danger mt-3" style="display: none;"></p>
                             </div>
                         </div>
-                        
+
                         <!-- Hidden Video Player -->
                         <div id="videoContainer" style="display: none;">
                             <div class="password-overlay" style="background: rgba(0, 0, 0, 0.5); position: relative;">
                                 <div class="video-wrap mt-4" style="position: relative;">
-                                    <video controls controlsList="nodownload noremoteplayback" disablePictureInPicture id="specialVideo" style="position: relative; max-width: 100%; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 40px rgba(255, 107, 157, 0.5);">
+                                    <video controls controlsList="nodownload noremoteplayback" disablePictureInPicture
+                                        id="specialVideo"
+                                        style="position: relative; max-width: 100%; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 40px rgba(255, 107, 157, 0.5);">
                                         <source src="video/pexels-2022395.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
-                                    
+
                                     <!-- Play Button Overlay -->
                                     <div id="videoPlayOverlay" class="video-play-overlay">
                                         <button class="play-video-btn" id="playSpecialVideoBtn">
@@ -695,535 +771,535 @@ https://templatemo.com/tm-583-festava-live
             </div>
         </section>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/click-scroll.js"></script>
-    <script src="js/custom.js"></script>
-    
-    <script>
-        // Birthday Intro Animation
-        const birthdayIntro = document.getElementById('birthdayIntro');
-        
-        // Create falling rose petals
-        function createRosePetals() {
-            const petals = ['🌹', '🌺', '🌸', '🌷', '💐', '🥀'];
-            for (let i = 0; i < 25; i++) {
-                const petal = document.createElement('div');
-                petal.className = 'rose-petal';
-                petal.textContent = petals[Math.floor(Math.random() * petals.length)];
-                petal.style.left = (Math.random() * 100) + '%';
-                petal.style.setProperty('--sway-1', (Math.random() * 100 - 50) + 'px');
-                petal.style.setProperty('--sway-2', (Math.random() * 100 - 50) + 'px');
-                petal.style.animationDelay = (Math.random() * 1.5) + 's';
-                petal.style.animationDuration = (2 + Math.random() * 1.5) + 's';
-                birthdayIntro.appendChild(petal);
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script>
+            // Birthday Intro Animation
+            const birthdayIntro = document.getElementById('birthdayIntro');
+
+            // Create falling rose petals
+            function createRosePetals() {
+                const petals = ['🌹', '🌺', '🌸', '🌷', '💐', '🥀'];
+                for (let i = 0; i < 25; i++) {
+                    const petal = document.createElement('div');
+                    petal.className = 'rose-petal';
+                    petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+                    petal.style.left = (Math.random() * 100) + '%';
+                    petal.style.setProperty('--sway-1', (Math.random() * 100 - 50) + 'px');
+                    petal.style.setProperty('--sway-2', (Math.random() * 100 - 50) + 'px');
+                    petal.style.animationDelay = (Math.random() * 1.5) + 's';
+                    petal.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+                    birthdayIntro.appendChild(petal);
+                }
             }
-        }
-        
-        // Animate text jumping in word by word
-        function animateText() {
-            const wishText = document.getElementById('wishText');
-            const words = ['😘', 'Happy', 'Birthday', 'Papuuu', '😘'];
-            
-            words.forEach((word, index) => {
-                const span = document.createElement('span');
-                span.textContent = word;
-                // Check if it's an emoji
-                const isEmoji = /[\u{1F000}-\u{1F9FF}]|[\u{2600}-\u{26FF}]/u.test(word);
-                span.className = isEmoji ? 'emoji' : 'word';
-                span.style.animationDelay = (1.5 + index * 0.2) + 's';
-                wishText.appendChild(span);
+
+            // Animate text jumping in word by word
+            function animateText() {
+                const wishText = document.getElementById('wishText');
+                const words = ['😘', 'Happy', 'Birthday', 'Papuuu', '😘'];
+
+                words.forEach((word, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    // Check if it's an emoji
+                    const isEmoji = /[\u{1F000}-\u{1F9FF}]|[\u{2600}-\u{26FF}]/u.test(word);
+                    span.className = isEmoji ? 'emoji' : 'word';
+                    span.style.animationDelay = (1.5 + index * 0.2) + 's';
+                    wishText.appendChild(span);
+                });
+            }
+
+            // Create floating hearts with sparkles
+            function createHearts() {
+                const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💞'];
+                for (let i = 0; i < 15; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.textContent = hearts[i % hearts.length];
+                    heart.style.left = (Math.random() * 90 + 5) + '%';
+                    heart.style.setProperty('--drift-1', (Math.random() * 60 - 30) + 'px');
+                    heart.style.setProperty('--drift-2', (Math.random() * 60 - 30) + 'px');
+                    heart.style.animationDelay = (i * 0.4) + 's';
+                    heart.style.animationDuration = (4 + Math.random() * 2) + 's';
+
+                    // Add sparkles around hearts periodically
+                    setTimeout(function () {
+                        createSparkles(heart);
+                    }, (i * 0.4 + 1.5) * 1000);
+
+                    setTimeout(function () {
+                        createSparkles(heart);
+                    }, (i * 0.4 + 3) * 1000);
+
+                    birthdayIntro.appendChild(heart);
+                }
+            }
+
+            // Create sparkle particles around hearts
+            function createSparkles(heart) {
+                const rect = heart.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                for (let i = 0; i < 8; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = centerX + 'px';
+                    sparkle.style.top = centerY + 'px';
+
+                    const angle = (i / 8) * Math.PI * 2;
+                    const distance = 30 + Math.random() * 20;
+                    sparkle.style.setProperty('--sx', Math.cos(angle) * distance + 'px');
+                    sparkle.style.setProperty('--sy', Math.sin(angle) * distance + 'px');
+
+                    birthdayIntro.appendChild(sparkle);
+
+                    setTimeout(() => sparkle.remove(), 1500);
+                }
+            }
+
+            // Create floating images for password section with bouncing physics
+            function createFloatingImages() {
+                const container = document.getElementById('floatingImagesContainer');
+                if (!container) return;
+
+                // Array of available images
+                const images = [
+                    'images/swetha1.jpeg',
+                    'images/swetha2.jpeg',
+                    'images/swetha3.jpeg',
+                    'images/swetha4.jpeg',
+                    'images/swetha5.jpeg',
+                    'images/swetha6.jpeg',
+                    'images/swetha7.jpeg',
+                    'images/swetha8.jpeg',
+                    'images/swetha9.jpeg',
+                    'images/swetha10.jpeg',
+                    'images/swetha11.jpeg',
+                ];
+
+                const floatingElements = [];
+
+                // Create 8 floating images with physics
+                for (let i = 0; i < 8; i++) {
+                    const img = document.createElement('img');
+                    img.src = images[i % images.length];
+                    img.className = 'floating-image';
+
+                    // Random starting position (away from edges)
+                    const startX = Math.random() * 70 + 10; // 10-80%
+                    const startY = Math.random() * 70 + 10; // 10-80%
+
+                    img.style.left = startX + '%';
+                    img.style.top = startY + '%';
+
+                    container.appendChild(img);
+
+                    // Store physics properties for each image
+                    floatingElements.push({
+                        element: img,
+                        x: startX,
+                        y: startY,
+                        vx: (Math.random() - 0.5) * 0.3, // velocity x (% per frame) - slower
+                        vy: (Math.random() - 0.5) * 0.3, // velocity y (% per frame) - slower
+                        rotation: 0,
+                        rotationSpeed: (Math.random() - 0.5) * 2 // degrees per frame - slower rotation
+                    });
+                }
+
+                // Animation loop with bouncing physics
+                function animate() {
+                    floatingElements.forEach(item => {
+                        // Update position
+                        item.x += item.vx;
+                        item.y += item.vy;
+                        item.rotation += item.rotationSpeed;
+
+                        // Bounce off edges (with 5% padding for image size)
+                        if (item.x <= 0 || item.x >= 95) {
+                            item.vx *= -1; // Reverse horizontal direction
+                            item.x = item.x <= 0 ? 0 : 95; // Keep within bounds
+                        }
+
+                        if (item.y <= 0 || item.y >= 90) {
+                            item.vy *= -1; // Reverse vertical direction
+                            item.y = item.y <= 0 ? 0 : 90; // Keep within bounds
+                        }
+
+                        // Apply position and rotation
+                        item.element.style.left = item.x + '%';
+                        item.element.style.top = item.y + '%';
+                        item.element.style.transform = `rotate(${item.rotation}deg)`;
+                    });
+
+                    requestAnimationFrame(animate);
+                }
+
+                // Start animation
+                animate();
+            }
+
+            // Initialize animations
+            createRosePetals();
+            animateText();
+            createHearts();
+            createFloatingImages(); // Initialize floating images for password section
+
+            // After 7 seconds, fade out the birthday animation
+            setTimeout(function () {
+                birthdayIntro.classList.add('fade-out');
+                setTimeout(function () {
+                    birthdayIntro.style.display = 'none';
+
+                    // Keep scroll locked - will unlock when video ends
+                }, 1000);
+            }, 7000);
+
+            // Hero Video Controls
+            const heroVideo = document.getElementById('heroVideo');
+            const muteToggleBtn = document.getElementById('muteToggleBtn');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const playAgainContainer = document.getElementById('playAgainContainer');
+            const playAgainBtn = document.getElementById('playAgainBtn');
+
+            // Track if video has been watched
+            let videoWatched = false;
+
+            // Play/Pause Toggle
+            playPauseBtn.addEventListener('click', function () {
+                if (heroVideo.paused) {
+                    heroVideo.play();
+                    playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
+                } else {
+                    heroVideo.pause();
+                    playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play';
+                }
             });
-        }
-        
-        // Create floating hearts with sparkles
-        function createHearts() {
-            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💞'];
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = hearts[i % hearts.length];
-                heart.style.left = (Math.random() * 90 + 5) + '%';
-                heart.style.setProperty('--drift-1', (Math.random() * 60 - 30) + 'px');
-                heart.style.setProperty('--drift-2', (Math.random() * 60 - 30) + 'px');
-                heart.style.animationDelay = (i * 0.4) + 's';
-                heart.style.animationDuration = (4 + Math.random() * 2) + 's';
-                
-                // Add sparkles around hearts periodically
-                setTimeout(function() {
-                    createSparkles(heart);
-                }, (i * 0.4 + 1.5) * 1000);
-                
-                setTimeout(function() {
-                    createSparkles(heart);
-                }, (i * 0.4 + 3) * 1000);
-                
-                birthdayIntro.appendChild(heart);
-            }
-        }
-        
-        // Create sparkle particles around hearts
-        function createSparkles(heart) {
-            const rect = heart.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            
-            for (let i = 0; i < 8; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.style.left = centerX + 'px';
-                sparkle.style.top = centerY + 'px';
-                
-                const angle = (i / 8) * Math.PI * 2;
-                const distance = 30 + Math.random() * 20;
-                sparkle.style.setProperty('--sx', Math.cos(angle) * distance + 'px');
-                sparkle.style.setProperty('--sy', Math.sin(angle) * distance + 'px');
-                
-                birthdayIntro.appendChild(sparkle);
-                
-                setTimeout(() => sparkle.remove(), 1500);
-            }
-        }
-        
-        // Create floating images for password section with bouncing physics
-        function createFloatingImages() {
-            const container = document.getElementById('floatingImagesContainer');
-            if (!container) return;
-            
-            // Array of available images
-            const images = [
-                'images/swetha1.jpeg',
-                'images/swetha2.jpeg',
-                'images/swetha3.jpeg',
-                'images/swetha4.jpeg',
-                'images/swetha5.jpeg',
-                'images/swetha6.jpeg',
-                'images/swetha7.jpeg',
-                'images/swetha8.jpeg',
-                'images/swetha9.jpeg',
-                'images/swetha10.jpeg',
-                'images/swetha11.jpeg',
-            ];
-            
-            const floatingElements = [];
-            
-            // Create 8 floating images with physics
-            for (let i = 0; i < 8; i++) {
-                const img = document.createElement('img');
-                img.src = images[i % images.length];
-                img.className = 'floating-image';
-                
-                // Random starting position (away from edges)
-                const startX = Math.random() * 70 + 10; // 10-80%
-                const startY = Math.random() * 70 + 10; // 10-80%
-                
-                img.style.left = startX + '%';
-                img.style.top = startY + '%';
-                
-                container.appendChild(img);
-                
-                // Store physics properties for each image
-                floatingElements.push({
-                    element: img,
-                    x: startX,
-                    y: startY,
-                    vx: (Math.random() - 0.5) * 0.3, // velocity x (% per frame) - slower
-                    vy: (Math.random() - 0.5) * 0.3, // velocity y (% per frame) - slower
-                    rotation: 0,
-                    rotationSpeed: (Math.random() - 0.5) * 2 // degrees per frame - slower rotation
-                });
-            }
-            
-            // Animation loop with bouncing physics
-            function animate() {
-                floatingElements.forEach(item => {
-                    // Update position
-                    item.x += item.vx;
-                    item.y += item.vy;
-                    item.rotation += item.rotationSpeed;
-                    
-                    // Bounce off edges (with 5% padding for image size)
-                    if (item.x <= 0 || item.x >= 95) {
-                        item.vx *= -1; // Reverse horizontal direction
-                        item.x = item.x <= 0 ? 0 : 95; // Keep within bounds
-                    }
-                    
-                    if (item.y <= 0 || item.y >= 90) {
-                        item.vy *= -1; // Reverse vertical direction
-                        item.y = item.y <= 0 ? 0 : 90; // Keep within bounds
-                    }
-                    
-                    // Apply position and rotation
-                    item.element.style.left = item.x + '%';
-                    item.element.style.top = item.y + '%';
-                    item.element.style.transform = `rotate(${item.rotation}deg)`;
-                });
-                
-                requestAnimationFrame(animate);
-            }
-            
-            // Start animation
-            animate();
-        }
-        
-        // Initialize animations
-        createRosePetals();
-        animateText();
-        createHearts();
-        createFloatingImages(); // Initialize floating images for password section
-        
-        // After 7 seconds, fade out the birthday animation
-        setTimeout(function() {
-            birthdayIntro.classList.add('fade-out');
-            setTimeout(function() {
-                birthdayIntro.style.display = 'none';
-                
-                // Keep scroll locked - will unlock when video ends
-            }, 1000);
-        }, 7000);
-        
-        // Hero Video Controls
-        const heroVideo = document.getElementById('heroVideo');
-        const muteToggleBtn = document.getElementById('muteToggleBtn');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const playAgainContainer = document.getElementById('playAgainContainer');
-        const playAgainBtn = document.getElementById('playAgainBtn');
-        
-        // Track if video has been watched
-        let videoWatched = false;
-        
-        // Play/Pause Toggle
-        playPauseBtn.addEventListener('click', function() {
-            if (heroVideo.paused) {
-                heroVideo.play();
-                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
-            } else {
-                heroVideo.pause();
+
+            // Mute/Unmute Toggle
+            muteToggleBtn.addEventListener('click', function () {
+                if (heroVideo.muted) {
+                    heroVideo.muted = false;
+                    muteToggleBtn.innerHTML = '<i class="bi bi-volume-up-fill"></i> Mute';
+                } else {
+                    heroVideo.muted = true;
+                    muteToggleBtn.innerHTML = '<i class="bi bi-volume-mute-fill"></i> Unmute';
+                }
+            });
+
+            // When video ends, stop and show play again button
+            heroVideo.addEventListener('ended', function () {
+                playAgainContainer.style.display = 'block';
                 playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play';
+
+                // Unlock scroll after first complete watch
+                if (!videoWatched) {
+                    videoWatched = true;
+                    document.body.classList.remove('scroll-locked');
+
+                    // Auto scroll to next section smoothly
+                    setTimeout(function () {
+                        const nextSection = document.getElementById('section_2');
+                        if (nextSection) {
+                            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 500); // Small delay for smooth transition
+                }
+            });
+
+            // Play Again functionality
+            playAgainBtn.addEventListener('click', function () {
+                heroVideo.currentTime = 0;
+                heroVideo.play();
+                playAgainContainer.style.display = 'none';
+                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
+            });
+
+            // Audio play/pause functionality
+            const festivalAudio = document.getElementById('festivalAudio');
+            const audioPlayBtn = document.getElementById('audioPlayBtn');
+            const audioControls = document.getElementById('audioControls');
+            const audioSeekBar = document.getElementById('audioSeekBar');
+            const currentTimeDisplay = document.getElementById('currentTime');
+            const totalDurationDisplay = document.getElementById('totalDuration');
+
+            // Format time in minutes:seconds
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return mins + ':' + (secs < 10 ? '0' : '') + secs;
             }
-        });
-        
-        // Mute/Unmute Toggle
-        muteToggleBtn.addEventListener('click', function() {
-            if (heroVideo.muted) {
-                heroVideo.muted = false;
-                muteToggleBtn.innerHTML = '<i class="bi bi-volume-up-fill"></i> Mute';
-            } else {
-                heroVideo.muted = true;
-                muteToggleBtn.innerHTML = '<i class="bi bi-volume-mute-fill"></i> Unmute';
-            }
-        });
-        
-        // When video ends, stop and show play again button
-        heroVideo.addEventListener('ended', function() {
-            playAgainContainer.style.display = 'block';
-            playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play';
-            
-            // Unlock scroll after first complete watch
-            if (!videoWatched) {
-                videoWatched = true;
-                document.body.classList.remove('scroll-locked');
-                
-                // Auto scroll to next section smoothly
-                setTimeout(function() {
-                    const nextSection = document.getElementById('section_2');
-                    if (nextSection) {
-                        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }, 500); // Small delay for smooth transition
-            }
-        });
-        
-        // Play Again functionality
-        playAgainBtn.addEventListener('click', function() {
-            heroVideo.currentTime = 0;
-            heroVideo.play();
-            playAgainContainer.style.display = 'none';
-            playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
-        });
-        
-        // Audio play/pause functionality
-        const festivalAudio = document.getElementById('festivalAudio');
-        const audioPlayBtn = document.getElementById('audioPlayBtn');
-        const audioControls = document.getElementById('audioControls');
-        const audioSeekBar = document.getElementById('audioSeekBar');
-        const currentTimeDisplay = document.getElementById('currentTime');
-        const totalDurationDisplay = document.getElementById('totalDuration');
-        
-        // Format time in minutes:seconds
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return mins + ':' + (secs < 10 ? '0' : '') + secs;
-        }
-        
-        // Show duration when metadata is loaded
-        festivalAudio.addEventListener('loadedmetadata', function() {
-            totalDurationDisplay.textContent = formatTime(festivalAudio.duration);
-            audioSeekBar.max = festivalAudio.duration;
-        });
-        
-        // Update progress bar and time as audio plays
-        festivalAudio.addEventListener('timeupdate', function() {
-            currentTimeDisplay.textContent = formatTime(festivalAudio.currentTime);
-            audioSeekBar.value = festivalAudio.currentTime;
-        });
-        
-        // Seek functionality - click on progress bar to jump to position
-        audioSeekBar.addEventListener('input', function() {
-            festivalAudio.currentTime = audioSeekBar.value;
-        });
-        
-        audioPlayBtn.addEventListener('click', function() {
-            if (festivalAudio.paused) {
-                festivalAudio.play();
-                audioPlayBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause Audio';
-                audioControls.style.display = 'block'; // Show progress bar when playing
-            } else {
-                festivalAudio.pause();
+
+            // Show duration when metadata is loaded
+            festivalAudio.addEventListener('loadedmetadata', function () {
+                totalDurationDisplay.textContent = formatTime(festivalAudio.duration);
+                audioSeekBar.max = festivalAudio.duration;
+            });
+
+            // Update progress bar and time as audio plays
+            festivalAudio.addEventListener('timeupdate', function () {
+                currentTimeDisplay.textContent = formatTime(festivalAudio.currentTime);
+                audioSeekBar.value = festivalAudio.currentTime;
+            });
+
+            // Seek functionality - click on progress bar to jump to position
+            audioSeekBar.addEventListener('input', function () {
+                festivalAudio.currentTime = audioSeekBar.value;
+            });
+
+            audioPlayBtn.addEventListener('click', function () {
+                if (festivalAudio.paused) {
+                    festivalAudio.play();
+                    audioPlayBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause Audio';
+                    audioControls.style.display = 'block'; // Show progress bar when playing
+                } else {
+                    festivalAudio.pause();
+                    audioPlayBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play Audio';
+                }
+            });
+
+            // Reset button when audio ends
+            festivalAudio.addEventListener('ended', function () {
                 audioPlayBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play Audio';
-            }
-        });
-        
-        // Reset button when audio ends
-        festivalAudio.addEventListener('ended', function() {
-            audioPlayBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play Audio';
-            audioSeekBar.value = 0;
-            currentTimeDisplay.textContent = '0:00';
-        });
-        
-        // Password Protected Video Functionality
-        const videoPassword = document.getElementById('videoPassword');
-        const unlockBtn = document.getElementById('unlockBtn');
-        const passwordError = document.getElementById('passwordError');
-        const passwordOverlay = document.getElementById('passwordOverlay');
-        const videoContainer = document.getElementById('videoContainer');
-        const specialVideo = document.getElementById('specialVideo');
-        const clueBox = document.getElementById('clueBox');
-        const clueText = document.getElementById('clueText');
-        const clueTimer = document.getElementById('clueTimer');
-        const showClueBtn = document.getElementById('showClueBtn');
-        
-        // Set your password here - accept multiple variations
-        const correctPasswords = ['butterfly', 'Butterfly', 'butterFly', 'BUTTERFLY'];
-        
-        // Clue system with timer
-        let wrongAttempts = 0;
-        let currentClueIndex = 0;
-        let clueTimerInterval = null;
-        let clueTimeRemaining = 10;
-        let clueChancesUsed = 0;
-        
-        const clues = [
-            "Ethana letter word lam sola mudiyathu, but that plays a major role in our relationship 💕",
-            "The theme I have given to you most of the time as a thing 🎁",
-            "On touching this something magical happens on the first meet❤️"
-        ];
-        
-        // Show clue button click
-        showClueBtn.addEventListener('click', function() {
-            // Hide the button and show clue box
-            showClueBtn.style.display = 'none';
-            clueBox.style.display = 'block';
-            
-            // Show clues continuously
-            showNextClue();
-        });
-        
-        function showNextClue() {
-            if (currentClueIndex >= clues.length) {
-                // All clues shown
-                clueBox.style.display = 'none';
+                audioSeekBar.value = 0;
+                currentTimeDisplay.textContent = '0:00';
+            });
+
+            // Password Protected Video Functionality
+            const videoPassword = document.getElementById('videoPassword');
+            const unlockBtn = document.getElementById('unlockBtn');
+            const passwordError = document.getElementById('passwordError');
+            const passwordOverlay = document.getElementById('passwordOverlay');
+            const videoContainer = document.getElementById('videoContainer');
+            const specialVideo = document.getElementById('specialVideo');
+            const clueBox = document.getElementById('clueBox');
+            const clueText = document.getElementById('clueText');
+            const clueTimer = document.getElementById('clueTimer');
+            const showClueBtn = document.getElementById('showClueBtn');
+
+            // Set your password here - accept multiple variations
+            const correctPasswords = ['butterfly', 'Butterfly', 'butterFly', 'BUTTERFLY'];
+
+            // Clue system with timer
+            let wrongAttempts = 0;
+            let currentClueIndex = 0;
+            let clueTimerInterval = null;
+            let clueTimeRemaining = 10;
+            let clueChancesUsed = 0;
+
+            const clues = [
+                "Ethana letter word lam sola mudiyathu, but that plays a major role in our relationship 💕",
+                "The theme I have given to you most of the time as a thing 🎁",
+                "On touching this something magical happens on the first meet❤️"
+            ];
+
+            // Show clue button click
+            showClueBtn.addEventListener('click', function () {
+                // Hide the button and show clue box
+                showClueBtn.style.display = 'none';
+                clueBox.style.display = 'block';
+
+                // Show clues continuously
+                showNextClue();
+            });
+
+            function showNextClue() {
+                if (currentClueIndex >= clues.length) {
+                    // All clues shown
+                    clueBox.style.display = 'none';
+                    if (clueTimerInterval) {
+                        clearInterval(clueTimerInterval);
+                    }
+                    return;
+                }
+
+                // Set current clue
+                clueText.textContent = clues[currentClueIndex];
+                clueTimeRemaining = 10;
+                clueTimer.textContent = '⏱️ ' + clueTimeRemaining + 's';
+
+                // Clear any existing timer
                 if (clueTimerInterval) {
                     clearInterval(clueTimerInterval);
                 }
-                return;
+
+                // Start countdown
+                clueTimerInterval = setInterval(function () {
+                    clueTimeRemaining--;
+                    clueTimer.textContent = '⏱️ ' + clueTimeRemaining + 's';
+
+                    if (clueTimeRemaining <= 0) {
+                        clearInterval(clueTimerInterval);
+
+                        // Move to next clue
+                        currentClueIndex++;
+
+                        // Show next clue automatically
+                        if (currentClueIndex < clues.length) {
+                            showNextClue();
+                        } else {
+                            // All clues shown
+                            clueBox.style.display = 'none';
+                        }
+                    }
+                }, 1000);
             }
-            
-            // Set current clue
-            clueText.textContent = clues[currentClueIndex];
-            clueTimeRemaining = 10;
-            clueTimer.textContent = '⏱️ ' + clueTimeRemaining + 's';
-            
-            // Clear any existing timer
-            if (clueTimerInterval) {
-                clearInterval(clueTimerInterval);
-            }
-            
-            // Start countdown
-            clueTimerInterval = setInterval(function() {
-                clueTimeRemaining--;
-                clueTimer.textContent = '⏱️ ' + clueTimeRemaining + 's';
-                
-                if (clueTimeRemaining <= 0) {
-                    clearInterval(clueTimerInterval);
-                    
-                    // Move to next clue
-                    currentClueIndex++;
-                    
-                    // Show next clue automatically
-                    if (currentClueIndex < clues.length) {
-                        showNextClue();
+
+            unlockBtn.addEventListener('click', function () {
+                checkPassword();
+            });
+
+            // Allow Enter key to submit
+            videoPassword.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            function checkPassword() {
+                const enteredPassword = videoPassword.value.trim();
+
+                if (enteredPassword === '') {
+                    showError('Please enter a password!');
+                    return;
+                }
+
+                if (correctPasswords.includes(enteredPassword)) {
+                    // Hide the section heading and text immediately
+                    const passwordSectionHeading = document.querySelector('#section_3 h2');
+                    const passwordSectionText = document.querySelector('#section_3 p');
+                    if (passwordSectionHeading) passwordSectionHeading.style.display = 'none';
+                    if (passwordSectionText) passwordSectionText.style.display = 'none';
+
+                    // Correct password - show welcome message
+                    const welcomeMsg = document.createElement('div');
+                    welcomeMsg.className = 'welcome-message';
+                    welcomeMsg.innerHTML = 'Sirika kudathu 🤣😂';
+                    document.body.appendChild(welcomeMsg);
+
+                    // Hide password overlay
+                    passwordOverlay.style.display = 'none';
+
+                    // After animation completes, show video with play button
+                    setTimeout(function () {
+                        welcomeMsg.remove();
+                        videoContainer.style.display = 'block';
+
+                        // Scroll to video
+                        videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 3000); // 3 seconds for animation to complete
+                } else {
+                    // Wrong password
+                    wrongAttempts++;
+
+                    if (wrongAttempts >= 3) {
+                        // After 3 wrong attempts, hide password input and show message
+                        document.getElementById('videoPassword').style.display = 'none';
+                        document.getElementById('unlockBtn').style.display = 'none';
+                        showClueBtn.style.display = 'none';
+                        clueBox.style.display = 'block';
+                        clueBox.style.background = 'rgba(255, 107, 157, 0.2)';
+                        clueBox.style.padding = '30px';
+                        clueBox.innerHTML = '<strong style="font-size: 2.5rem; color: white;">Mr.satz wont show the video until march 25 😂</strong>';
+                        passwordError.style.display = 'none';
+
+                        // Clear timer if running
+                        if (clueTimerInterval) {
+                            clearInterval(clueTimerInterval);
+                        }
                     } else {
-                        // All clues shown
-                        clueBox.style.display = 'none';
+                        showError('❌ Wrong password mam ! You have ' + (3 - wrongAttempts) + ' attempts left... 💖');
+                        videoPassword.value = '';
+                        videoPassword.focus();
                     }
                 }
-            }, 1000);
-        }
-        
-        unlockBtn.addEventListener('click', function() {
-            checkPassword();
-        });
-        
-        // Allow Enter key to submit
-        videoPassword.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
             }
-        });
-        
-        function checkPassword() {
-            const enteredPassword = videoPassword.value.trim();
-            
-            if (enteredPassword === '') {
-                showError('Please enter a password!');
-                return;
+
+            function showError(message) {
+                passwordError.textContent = message;
+                passwordError.style.display = 'block';
+
+                setTimeout(function () {
+                    passwordError.style.display = 'none';
+                }, 3000);
             }
-            
-            if (correctPasswords.includes(enteredPassword)) {
-                // Hide the section heading and text immediately
+
+            // Play button for special video
+            const playSpecialVideoBtn = document.getElementById('playSpecialVideoBtn');
+            const videoPlayOverlay = document.getElementById('videoPlayOverlay');
+
+            playSpecialVideoBtn.addEventListener('click', function () {
+                // Hide the play button overlay
+                videoPlayOverlay.style.display = 'none';
+
+                // Hide all other content (heading and text)
                 const passwordSectionHeading = document.querySelector('#section_3 h2');
                 const passwordSectionText = document.querySelector('#section_3 p');
                 if (passwordSectionHeading) passwordSectionHeading.style.display = 'none';
                 if (passwordSectionText) passwordSectionText.style.display = 'none';
-                
-                // Correct password - show welcome message
-                const welcomeMsg = document.createElement('div');
-                welcomeMsg.className = 'welcome-message';
-                welcomeMsg.innerHTML = 'Sirika kudathu 🤣😂';
-                document.body.appendChild(welcomeMsg);
-                
-                // Hide password overlay
-                passwordOverlay.style.display = 'none';
-                
-                // After animation completes, show video with play button
-                setTimeout(function() {
-                    welcomeMsg.remove();
-                    videoContainer.style.display = 'block';
-                    
-                    // Scroll to video
-                    videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 3000); // 3 seconds for animation to complete
-            } else {
-                // Wrong password
-                wrongAttempts++;
-                
-                if (wrongAttempts >= 3) {
-                    // After 3 wrong attempts, hide password input and show message
-                    document.getElementById('videoPassword').style.display = 'none';
-                    document.getElementById('unlockBtn').style.display = 'none';
-                    showClueBtn.style.display = 'none';
-                    clueBox.style.display = 'block';
-                    clueBox.style.background = 'rgba(255, 107, 157, 0.2)';
-                    clueBox.style.padding = '30px';
-                    clueBox.innerHTML = '<strong style="font-size: 2.5rem; color: white;">Mr.satz wont show the video until march 25 😂</strong>';
-                    passwordError.style.display = 'none';
-                    
-                    // Clear timer if running
-                    if (clueTimerInterval) {
-                        clearInterval(clueTimerInterval);
-                    }
-                } else {
-                    showError('❌ Wrong password mam ! You have ' + (3 - wrongAttempts) + ' attempts left... 💖');
-                    videoPassword.value = '';
-                    videoPassword.focus();
-                }
-            }
-        }
-        
-        function showError(message) {
-            passwordError.textContent = message;
-            passwordError.style.display = 'block';
-            
-            setTimeout(function() {
-                passwordError.style.display = 'none';
-            }, 3000);
-        }
-        
-        // Play button for special video
-        const playSpecialVideoBtn = document.getElementById('playSpecialVideoBtn');
-        const videoPlayOverlay = document.getElementById('videoPlayOverlay');
-        
-        playSpecialVideoBtn.addEventListener('click', function() {
-            // Hide the play button overlay
-            videoPlayOverlay.style.display = 'none';
-            
-            // Hide all other content (heading and text)
-            const passwordSectionHeading = document.querySelector('#section_3 h2');
-            const passwordSectionText = document.querySelector('#section_3 p');
-            if (passwordSectionHeading) passwordSectionHeading.style.display = 'none';
-            if (passwordSectionText) passwordSectionText.style.display = 'none';
-            
-            // Play the video
-            specialVideo.play();
-        });
-        
-        // When video ends or is paused, show back the content
-        specialVideo.addEventListener('ended', function() {
-            const passwordSectionHeading = document.querySelector('#section_3 h2');
-            const passwordSectionText = document.querySelector('#section_3 p');
-            if (passwordSectionHeading) passwordSectionHeading.style.display = 'block';
-            if (passwordSectionText) passwordSectionText.style.display = 'block';
-        });
 
-        // Text Decryption Functionality
-        const textPasswordInput = document.getElementById('textPassword');
-        const decryptBtn = document.getElementById('decryptBtn');
-        const textPasswordBox = document.getElementById('textPasswordBox');
-        const encryptedContent = document.getElementById('encryptedContent');
-        const textPasswordError = document.getElementById('textPasswordError');
-        
-        decryptBtn.addEventListener('click', function() {
-            const password = textPasswordInput.value.trim();
-            
-            if (password === 'blue' || password === 'Blue' || password === 'BLUE') {
-                // Hide password box
-                textPasswordBox.style.display = 'none';
-                
-                // Show encrypted content
-                encryptedContent.style.display = 'block';
-                
-                // Animate text elements with staggered fade-in
-                const encryptedTexts = document.querySelectorAll('.encrypted-text');
-                encryptedTexts.forEach(function(text) {
-                    // Trigger opacity transition
-                    setTimeout(function() {
-                        text.style.opacity = '1';
-                    }, 50);
-                });
-            } else {
-                // Show error message
-                textPasswordError.textContent = 'Incorrect madam 🤣 ???? iris';
-                textPasswordError.style.display = 'block';
-                textPasswordInput.value = '';
-                
-                // Hide error after 3 seconds
-                setTimeout(function() {
-                    textPasswordError.style.display = 'none';
-                }, 3000);
-            }
-        });
-        
-        // Allow Enter key to unlock
-        textPasswordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                decryptBtn.click();
-            }
-        });
-    </script>
+                // Play the video
+                specialVideo.play();
+            });
+
+            // When video ends or is paused, show back the content
+            specialVideo.addEventListener('ended', function () {
+                const passwordSectionHeading = document.querySelector('#section_3 h2');
+                const passwordSectionText = document.querySelector('#section_3 p');
+                if (passwordSectionHeading) passwordSectionHeading.style.display = 'block';
+                if (passwordSectionText) passwordSectionText.style.display = 'block';
+            });
+
+            // Text Decryption Functionality
+            const textPasswordInput = document.getElementById('textPassword');
+            const decryptBtn = document.getElementById('decryptBtn');
+            const textPasswordBox = document.getElementById('textPasswordBox');
+            const encryptedContent = document.getElementById('encryptedContent');
+            const textPasswordError = document.getElementById('textPasswordError');
+
+            decryptBtn.addEventListener('click', function () {
+                const password = textPasswordInput.value.trim();
+
+                if (password === 'blue' || password === 'Blue' || password === 'BLUE') {
+                    // Hide password box
+                    textPasswordBox.style.display = 'none';
+
+                    // Show encrypted content
+                    encryptedContent.style.display = 'block';
+
+                    // Animate text elements with staggered fade-in
+                    const encryptedTexts = document.querySelectorAll('.encrypted-text');
+                    encryptedTexts.forEach(function (text) {
+                        // Trigger opacity transition
+                        setTimeout(function () {
+                            text.style.opacity = '1';
+                        }, 50);
+                    });
+                } else {
+                    // Show error message
+                    textPasswordError.textContent = 'Incorrect madam 🤣 ???? iris';
+                    textPasswordError.style.display = 'block';
+                    textPasswordInput.value = '';
+
+                    // Hide error after 3 seconds
+                    setTimeout(function () {
+                        textPasswordError.style.display = 'none';
+                    }, 3000);
+                }
+            });
+
+            // Allow Enter key to unlock
+            textPasswordInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    decryptBtn.click();
+                }
+            });
+        </script>
 
 </body>
 
