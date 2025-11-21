@@ -526,6 +526,126 @@
             box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
             opacity: 1;
         }
+
+        /* Mobile responsive fixes for iPhone and other devices */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .services-info {
+                padding: 10px;
+            }
+
+            .services-info h2 {
+                font-size: 1.5rem !important;
+                word-wrap: break-word;
+            }
+
+            .services-info p,
+            .services-info h6 {
+                font-size: 0.9rem !important;
+                line-height: 1.6;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            #textPasswordBox {
+                margin: 10px 0 !important;
+            }
+
+            #textPasswordBox > div {
+                padding: 10px !important;
+            }
+
+            #textPasswordBox p {
+                font-size: 0.8rem !important;
+            }
+
+            #textPasswordBox input {
+                max-width: 100% !important;
+                font-size: 0.85rem !important;
+            }
+
+            #textPasswordBox button {
+                font-size: 0.75rem !important;
+                padding: 5px 12px !important;
+                white-space: normal;
+                line-height: 1.4;
+            }
+
+            .password-overlay {
+                padding: 20px !important;
+                margin: 0 10px;
+            }
+
+            .password-overlay h3 {
+                font-size: 1.2rem !important;
+            }
+
+            #clueBox {
+                max-width: 100% !important;
+                padding: 10px !important;
+                margin: 0 0 15px 0 !important;
+            }
+
+            #clueBox p {
+                font-size: 0.9rem !important;
+            }
+
+            #clueText {
+                font-size: 0.85rem !important;
+            }
+
+            #showClueBtn {
+                font-size: 0.85rem !important;
+                padding: 8px 15px !important;
+                white-space: normal;
+                line-height: 1.4;
+            }
+
+            #videoPassword {
+                max-width: 100% !important;
+                font-size: 0.95rem !important;
+            }
+
+            .about-text-info h3 {
+                font-size: 0.9rem !important;
+            }
+
+            .encrypted-text {
+                font-size: 0.85rem !important;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-info h2 {
+                font-size: 1.3rem !important;
+            }
+
+            .services-info p,
+            .services-info h6 {
+                font-size: 0.85rem !important;
+            }
+
+            .password-overlay {
+                padding: 15px !important;
+            }
+
+            .password-overlay h3 {
+                font-size: 1rem !important;
+            }
+
+            #clueTimer {
+                font-size: 1rem !important;
+            }
+        }
     </style>
 
     <!--
@@ -596,7 +716,7 @@ https://templatemo.com/tm-583-festava-live
             </div>
 
             <div class="video-wrap">
-                <video autoplay muted class="custom-video" id="heroVideo" poster="">
+                <video autoplay muted playsinline class="custom-video" id="heroVideo" poster="">
                     <source src="video/pexels-2022396.mp4" type="video/mp4">
 
                     Your browser does not support the video tag.
@@ -966,6 +1086,18 @@ https://templatemo.com/tm-583-festava-live
             const playPauseBtn = document.getElementById('playPauseBtn');
             const playAgainContainer = document.getElementById('playAgainContainer');
             const playAgainBtn = document.getElementById('playAgainBtn');
+
+            // Force video to play on mobile devices (especially iOS)
+            // iOS requires user interaction, so we'll try to play after birthday intro
+            setTimeout(function() {
+                const playPromise = heroVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(error) {
+                        // Auto-play was prevented, video will play when user interacts
+                        console.log('Autoplay prevented:', error);
+                    });
+                }
+            }, 8000); // After birthday intro ends
 
             // Track if video has been watched
             let videoWatched = false;
