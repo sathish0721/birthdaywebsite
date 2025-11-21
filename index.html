@@ -811,8 +811,16 @@ https://templatemo.com/tm-583-festava-live
                 </button>
             </div>
 
+            <!-- Initial Play Button for Mobile (Shows if autoplay fails) -->
+            <div id="initialPlayOverlay"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; display: none;">
+                <button class="btn custom-btn" id="initialPlayBtn" style="font-size: 1.5rem; padding: 20px 40px;">
+                    <i class="bi bi-play-circle-fill"></i> Play Video
+                </button>
+            </div>
+
             <div class="video-wrap">
-                <video autoplay muted playsinline class="custom-video" id="heroVideo" poster="">
+                <video muted playsinline class="custom-video" id="heroVideo" poster="">
                     <source src="video/pexels-2022396.mp4" type="video/mp4">
 
                     Your browser does not support the video tag.
@@ -1182,18 +1190,31 @@ https://templatemo.com/tm-583-festava-live
             const playPauseBtn = document.getElementById('playPauseBtn');
             const playAgainContainer = document.getElementById('playAgainContainer');
             const playAgainBtn = document.getElementById('playAgainBtn');
+            const initialPlayOverlay = document.getElementById('initialPlayOverlay');
+            const initialPlayBtn = document.getElementById('initialPlayBtn');
 
-            // Force video to play on mobile devices (especially iOS)
-            // iOS requires user interaction, so we'll try to play after birthday intro
+            // Try to autoplay after birthday intro
             setTimeout(function() {
                 const playPromise = heroVideo.play();
                 if (playPromise !== undefined) {
-                    playPromise.catch(function(error) {
-                        // Auto-play was prevented, video will play when user interacts
+                    playPromise.then(function() {
+                        // Autoplay succeeded
+                        console.log('Autoplay successful');
+                        initialPlayOverlay.style.display = 'none';
+                    }).catch(function(error) {
+                        // Auto-play was prevented, show play button
                         console.log('Autoplay prevented:', error);
+                        initialPlayOverlay.style.display = 'block';
                     });
                 }
             }, 8000); // After birthday intro ends
+
+            // Initial play button click handler
+            initialPlayBtn.addEventListener('click', function() {
+                heroVideo.play();
+                initialPlayOverlay.style.display = 'none';
+                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
+            });
 
             // Track if video has been watched
             let videoWatched = false;
@@ -1218,6 +1239,11 @@ https://templatemo.com/tm-583-festava-live
                     heroVideo.muted = true;
                     muteToggleBtn.innerHTML = '<i class="bi bi-volume-mute-fill"></i> Unmute';
                 }
+            });
+
+            // Hide initial play button when video starts playing
+            heroVideo.addEventListener('play', function() {
+                initialPlayOverlay.style.display = 'none';
             });
 
             // When video ends, stop and show play again button
