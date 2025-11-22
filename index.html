@@ -934,13 +934,17 @@ https://templatemo.com/tm-583-festava-live
 
 
                                 <div class="ms-2">
-                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">என் தேவதைக்கு இனிய பிறந்தநாள்
+                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">என்னவளுக்கு என் இனிய பிறந்தநாள்
                                         வாழ்த்துக்கள்</h3>
 
                                     <!-- <p class="mb-0" style="font-size: 0.9rem;">Try to use hearphone, bayapuda kudathu</p> -->
 
                                     <div class="mt-1">
-                                        <audio id="festivalAudio" src="audio/audio.mpeg"></audio>
+                                        <audio id="festivalAudio" preload="metadata">
+                                            <source src="audio/audio.m4a" type="audio/mp4">
+                                            <source src="audio/audio.m4a" type="audio/x-m4a">
+                                            Your browser does not support the audio element.
+                                        </audio>
                                         <button class="btn btn-sm custom-btn" id="audioPlayBtn"
                                             style="font-size: 0.75rem; padding: 4px 10px;">
                                             <i class="bi bi-play-fill"></i> Play Audio
@@ -1167,10 +1171,10 @@ https://templatemo.com/tm-583-festava-live
                         element: img,
                         x: startX,
                         y: startY,
-                        vx: (Math.random() - 0.5) * 0.3, // velocity x (% per frame) - slower
-                        vy: (Math.random() - 0.5) * 0.3, // velocity y (% per frame) - slower
+                        vx: (Math.random() - 0.5) * 1.2, // velocity x (% per frame) - faster movement
+                        vy: (Math.random() - 0.5) * 1.2, // velocity y (% per frame) - faster movement
                         rotation: 0,
-                        rotationSpeed: (Math.random() - 0.5) * 2 // degrees per frame - slower rotation
+                        rotationSpeed: (Math.random() - 0.5) * 8 // degrees per frame - faster rotation
                     });
                 }
 
@@ -1348,10 +1352,23 @@ https://templatemo.com/tm-583-festava-live
                 return mins + ':' + (secs < 10 ? '0' : '') + secs;
             }
 
+            // Error handling for audio loading
+            festivalAudio.addEventListener('error', function(e) {
+                console.error('Audio loading error:', e);
+                audioPlayBtn.innerHTML = '<i class="bi bi-exclamation-circle"></i> Audio Error';
+                audioPlayBtn.disabled = true;
+            });
+
+            // When audio can start playing
+            festivalAudio.addEventListener('canplay', function() {
+                console.log('Audio ready to play');
+            });
+
             // Show duration when metadata is loaded
             festivalAudio.addEventListener('loadedmetadata', function () {
                 totalDurationDisplay.textContent = formatTime(festivalAudio.duration);
                 audioSeekBar.max = festivalAudio.duration;
+                console.log('Audio duration:', festivalAudio.duration);
             });
 
             // Update progress bar and time as audio plays
@@ -1367,9 +1384,16 @@ https://templatemo.com/tm-583-festava-live
 
             audioPlayBtn.addEventListener('click', function () {
                 if (festivalAudio.paused) {
-                    festivalAudio.play();
-                    audioPlayBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause Audio';
-                    audioControls.style.display = 'block'; // Show progress bar when playing
+                    const playPromise = festivalAudio.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(function() {
+                            audioPlayBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause Audio';
+                            audioControls.style.display = 'block'; // Show progress bar when playing
+                        }).catch(function(error) {
+                            console.error('Audio play error:', error);
+                            alert('Unable to play audio. Please check if the audio file is loaded correctly.');
+                        });
+                    }
                 } else {
                     festivalAudio.pause();
                     audioPlayBtn.innerHTML = '<i class="bi bi-play-fill"></i> Play Audio';
