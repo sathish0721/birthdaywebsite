@@ -1016,10 +1016,15 @@ https://templatemo.com/tm-583-festava-live
                         <div id="videoContainer" style="display: none;">
                             <div class="password-overlay" style="background: rgba(0, 0, 0, 0.5); position: relative;">
                                 <div class="video-wrap mt-4" style="position: relative;">
+                                    <!-- Playlist info -->
+                                    <div id="playlistInfo" style="position: absolute; top: 10px; left: 10px; z-index: 100; background: rgba(0,0,0,0.7); padding: 8px 12px; border-radius: 8px; color: white; font-size: 0.9rem;">
+                                        Video <span id="currentVideoNumber">1</span> of <span id="totalVideos">1</span>
+                                    </div>
+
                                     <video controls controlsList="nodownload noremoteplayback" disablePictureInPicture
                                         id="specialVideo"
                                         style="position: relative; max-width: 100%; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 40px rgba(255, 107, 157, 0.5);">
-                                        <source src="video/pexels-2022395.mp4" type="video/mp4">
+                                        <!-- Video sources will be loaded dynamically -->
                                         Your browser does not support the video tag.
                                     </video>
 
@@ -1578,6 +1583,39 @@ https://templatemo.com/tm-583-festava-live
             const playSpecialVideoBtn = document.getElementById('playSpecialVideoBtn');
             const videoPlayOverlay = document.getElementById('videoPlayOverlay');
 
+            // Video Playlist - Add your video files here
+            const videoPlaylist = [
+                'video/1.mp4',
+                'video/2.mp4',
+                'video/3.mp4'
+                // Add more video paths here, for example:
+                // 'video/video2.mp4',
+                // 'video/video3.mp4',
+                // 'video/video4.mp4',
+            ];
+
+            let currentVideoIndex = 0;
+
+            // Update playlist info
+            function updatePlaylistInfo() {
+                document.getElementById('currentVideoNumber').textContent = currentVideoIndex + 1;
+                document.getElementById('totalVideos').textContent = videoPlaylist.length;
+            }
+
+            // Load video by index
+            function loadVideo(index) {
+                if (index >= 0 && index < videoPlaylist.length) {
+                    currentVideoIndex = index;
+                    specialVideo.src = videoPlaylist[currentVideoIndex];
+                    specialVideo.load();
+                    updatePlaylistInfo();
+                    console.log('Loading video:', videoPlaylist[currentVideoIndex]);
+                }
+            }
+
+            // Load first video initially
+            loadVideo(0);
+
             playSpecialVideoBtn.addEventListener('click', function () {
                 // Hide the play button overlay
                 videoPlayOverlay.style.display = 'none';
@@ -1592,12 +1630,23 @@ https://templatemo.com/tm-583-festava-live
                 specialVideo.play();
             });
 
-            // When video ends or is paused, show back the content
+            // When video ends, play next video or show content back
             specialVideo.addEventListener('ended', function () {
-                const passwordSectionHeading = document.querySelector('#section_3 h2');
-                const passwordSectionText = document.querySelector('#section_3 p');
-                if (passwordSectionHeading) passwordSectionHeading.style.display = 'block';
-                if (passwordSectionText) passwordSectionText.style.display = 'block';
+                // Check if there's a next video
+                if (currentVideoIndex < videoPlaylist.length - 1) {
+                    // Load and play next video
+                    loadVideo(currentVideoIndex + 1);
+                    specialVideo.play();
+                } else {
+                    // All videos finished, show back the content
+                    const passwordSectionHeading = document.querySelector('#section_3 h2');
+                    const passwordSectionText = document.querySelector('#section_3 p');
+                    if (passwordSectionHeading) passwordSectionHeading.style.display = 'block';
+                    if (passwordSectionText) passwordSectionText.style.display = 'block';
+                    
+                    // Reset to first video for next time
+                    loadVideo(0);
+                }
             });
 
             // Text Decryption Functionality
