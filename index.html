@@ -378,11 +378,6 @@
             height: 100vh;
         }
 
-        /* Lock scroll at section 2 until password is entered */
-        body.section2-locked {
-            overflow: hidden;
-        }
-
         /* Ensure about-text-wrap is positioned relatively for absolute card positioning */
         .about-text-wrap {
             position: relative;
@@ -939,7 +934,15 @@ https://templatemo.com/tm-583-festava-live
 
                                     <!-- <p class="mb-0" style="font-size: 0.9rem;">Try to use hearphone, bayapuda kudathu</p> -->
 
-                                    <div class="mt-1">
+                                    <!-- Audio instruction text - shown before password -->
+                                    <div class="mt-1" id="audioInstruction">
+                                        <p class="mb-0" style="font-size: 0.85rem; opacity: 0.8; color: black;">
+                                            🎵 Guess the above clue to open special audio
+                                        </p>
+                                    </div>
+
+                                    <!-- Audio Section - Hidden until password is entered -->
+                                    <div class="mt-1" id="audioSection" style="display: none;">
                                         <audio id="festivalAudio" preload="metadata">
                                             <source src="audio/audio.m4a" type="audio/mp4">
                                             <source src="audio/audio.m4a" type="audio/x-m4a">
@@ -1308,11 +1311,6 @@ https://templatemo.com/tm-583-festava-live
                         const nextSection = document.getElementById('section_2');
                         if (nextSection) {
                             nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            
-                            // Lock scroll at section 2 until password is entered
-                            setTimeout(function() {
-                                document.body.classList.add('section2-locked');
-                            }, 600);
                         }
                     }, 500); // Small delay for smooth transition
                 }
@@ -1324,22 +1322,6 @@ https://templatemo.com/tm-583-festava-live
                 heroVideo.play();
                 playAgainContainer.style.display = 'none';
                 playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i> Pause';
-            });
-
-            // Detect when user scrolls to section 2 manually
-            let section2Locked = false;
-            window.addEventListener('scroll', function() {
-                const section2 = document.getElementById('section_2');
-                if (!section2Locked && section2) {
-                    const section2Top = section2.getBoundingClientRect().top;
-                    // If section 2 is visible and password not entered yet
-                    if (section2Top < window.innerHeight / 2 && document.getElementById('textPasswordBox').style.display !== 'none') {
-                        section2Locked = true;
-                        document.body.classList.add('section2-locked');
-                        // Snap to section 2
-                        section2.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
             });
 
             // Audio play/pause functionality
@@ -1666,11 +1648,20 @@ https://templatemo.com/tm-583-festava-live
                     // Hide password box
                     textPasswordBox.style.display = 'none';
 
+                    // Hide audio instruction
+                    const audioInstruction = document.getElementById('audioInstruction');
+                    if (audioInstruction) {
+                        audioInstruction.style.display = 'none';
+                    }
+
                     // Show encrypted content
                     encryptedContent.style.display = 'block';
 
-                    // Unlock scroll for section 2
-                    document.body.classList.remove('section2-locked');
+                    // Show audio section
+                    const audioSection = document.getElementById('audioSection');
+                    if (audioSection) {
+                        audioSection.style.display = 'block';
+                    }
 
                     // Force viewport to fit content on mobile
                     if (window.innerWidth <= 768) {
